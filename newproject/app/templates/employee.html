@@ -1,0 +1,22 @@
+{% extends 'sample.html' %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'employee' %}" method="POST">
+        {% csrf_token %}
+        <label for="name">First Name:</label>
+        <input type="text" name="first_name" placeholder="Enter First Name" required><br><br>
+        <label for="name">Last Name:</label>
+        <input type="text" name="last_name" placeholder="Enter Last Name" required><br><br>
+        <label for="name">Age:</label>
+        <input type="number" name="age" placeholder="Enter your age" required><br><br>
+        <label for="name">Email:</label>
+        <input type="number,text" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="name">Gender:</label>
+        <input type="text" name="gender" placeholder="Enter Gender" required><br><br>
+        <label for="name">Department:</label>
+        <input type="text" name="department" placeholder="Enter Department" required><br><br>
+        <input type="submit">
+    </form>
+</div>    
+{% endblock %}
