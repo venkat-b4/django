@@ -42,13 +42,15 @@ def user_register(request):
         username = request.POST.get('user_name')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
-        email = request.POST.get('email')           
+        email = request.POST.get('email')  
+        print("jack")         
         if password == confirm_password:
             if user_data.objects.filter(username=username).exists():
                 return HttpResponse("username exits")
-            if user_data.objects.filter(email=email).exists():
+            elif user_data.objects.filter(email=email).exists():
                 return HttpResponse("email exits")
             else:
+                print("jack")
                 user = user_data.objects.create(
                     username = username,
                     password = password,
@@ -56,6 +58,9 @@ def user_register(request):
                 )
                 user.save()
                 return redirect('cards')
+        else:
+            print("jack")
+            return HttpResponse("password exits")
         # return redirect('employee')
     return render(request, 'register.html')     
        
