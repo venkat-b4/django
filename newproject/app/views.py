@@ -43,7 +43,7 @@ def user_register(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         email = request.POST.get('email')           
-        if 1 == 1:
+        if password == confirm_password:
             if user_data.objects.filter(username=username).exists():
                 return HttpResponse("username exits")
             if user_data.objects.filter(email=email).exists():
